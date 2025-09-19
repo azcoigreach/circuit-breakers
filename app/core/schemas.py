@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import uuid
-from typing import Any, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List, Optional
 
 from pydantic import BaseModel, Field
 
@@ -65,7 +65,7 @@ class EventSchema(BaseModel):
 
 class CurrencyMetadataSchema(BaseModel):
     base_unit: str = "mAMP"
-    DENOMINATIONS = [denom.value for denom in Denomination]
+    DENOMINATIONS: ClassVar[List[str]] = [denom.value for denom in Denomination]
     denominations: List[str] = Field(default_factory=lambda: CurrencyMetadataSchema.DENOMINATIONS)
     lore: str = (
         "AMPs are Anonymous Market Packets—energy siphoned from megacorps and hashed into currency."
