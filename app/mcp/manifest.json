@@ -1,0 +1,10 @@
+{
+  "name": "Circuit Breakers MCP",
+  "version": "0.1.0",
+  "description": "MCP adapter exposing Circuit Breakers Season 1 operations.",
+  "tools": [
+    {"name": "get_world_state", "description": "Retrieve current world tick state."},
+    {"name": "subscribe_events", "description": "Subscribe to event stream."},
+    {"name": "list_market_listings", "description": "List market listings."}
+  ]
+}
