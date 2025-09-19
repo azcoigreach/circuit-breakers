@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql+asyncpg://postgres:postgres@db:5432/circuit_breakers
+      REDIS_URL: redis://redis:6379/0
+      DEV_MODE: "true"
+    depends_on:
+      - db
+      - redis
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: circuit_breakers
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"

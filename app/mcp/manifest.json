@@ -1,0 +1,15 @@
+{
+  "name": "Circuit Breakers MCP",
+  "version": "0.1.0",
+  "description": "MCP adapter exposing Circuit Breakers Season 1 operations.",
+  "tools": [
+    {"name": "get_world_state", "description": "Retrieve current world tick state."},
+    {"name": "list_entities", "description": "List entities with optional filters."},
+    {"name": "get_entity", "description": "Fetch a single entity by ID."},
+    {"name": "submit_action", "description": "Submit an action for the current tick."},
+    {"name": "subscribe_events", "description": "Subscribe to event stream."},
+    {"name": "list_market_listings", "description": "List market listings."},
+    {"name": "buy_listing", "description": "Buy a market listing."},
+    {"name": "decrypt_packet", "description": "Attempt to decrypt an encrypted AMP packet."}
+  ]
+}
