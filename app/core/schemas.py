@@ -65,7 +65,8 @@ class EventSchema(BaseModel):
 
 class CurrencyMetadataSchema(BaseModel):
     base_unit: str = "mAMP"
-    denominations: List[str] = [denom.value for denom in Denomination]
+    DENOMINATIONS = [denom.value for denom in Denomination]
+    denominations: List[str] = Field(default_factory=lambda: CurrencyMetadataSchema.DENOMINATIONS)
     lore: str = (
         "AMPs are Anonymous Market Packets—energy siphoned from megacorps and hashed into currency."
     )
