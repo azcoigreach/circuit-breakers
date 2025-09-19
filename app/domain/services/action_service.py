@@ -56,6 +56,8 @@ class ActionService:
         applied: List[Dict[str, object]] = []
         for action in actions:
             definition = registry.registry.get(action.type)
+            if definition is None:
+                raise ValidationError(f"Unknown action type: {action.type}")
             context = SimpleNamespace(session=self.session, tick=tick, action=action)
             await definition.validator(context, action.payload)
             result = await definition.applier(context, action.payload)
